@@ -72,6 +72,8 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 function createPhotoGallery() {
   const galleryContainer = document.querySelector('.gallery');
+  const galleryLinks = [];
+
   images.forEach((item) => {
     const galleryItem = document.createElement('li');
     galleryItem.classList.add('gallery-item');
@@ -89,8 +91,10 @@ function createPhotoGallery() {
 
     galleryLink.appendChild(galleryImage);
     galleryItem.appendChild(galleryLink);
-    galleryContainer.appendChild(galleryItem);
+    galleryLinks.push(galleryItem);
   });
+
+  galleryContainer.append(...galleryLinks);
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
